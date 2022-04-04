@@ -1,14 +1,14 @@
 // General
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Styles
 
 import "./App.css";
 
-// Components
+// Routing
 
-import Home from "./Pages/Home/Home";
+import AnimatedRoutes from "./Routing/AnimatedRoutes";
 
 // Hooks
 
@@ -17,10 +17,8 @@ import { ScrollRestoration } from "./Hooks/ScrollRestoration";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <ScrollRestoration />
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <ScrollRestoration />
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }

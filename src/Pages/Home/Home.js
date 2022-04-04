@@ -1,14 +1,5 @@
-// General
-
-// Styles
-import "./Home.css";
-
-// Components
-
-// Actions
-
-// Logics
+import React from "react";
 
 export default function Home() {
-  return <></>;
+  return <div>Home</div>;
 }
