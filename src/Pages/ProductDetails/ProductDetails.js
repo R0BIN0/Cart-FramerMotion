@@ -10,11 +10,9 @@ import productData from "../../Data/ProductData";
 export default function ProductDetails() {
   // ============= STATES =============
 
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [currentProduct, setCurrentProduct] = useState({});
-  const [qty, setQty] = useState("");
+  const [qty, setQty] = useState(1);
 
   // ============= RECUPERER LE BON PRODUIT =============
 
@@ -53,7 +51,7 @@ export default function ProductDetails() {
       <button onClick={() => addToCart({ objId: currentProduct.id, qty: qty })}>
         AJOUTER
       </button>
-      <select onChange={(e) => setQty(Number(e.target.value))}>
+      <select value={qty} onChange={(e) => setQty(Number(e.target.value))}>
         {Array.from({ length: currentProduct.stock }).map((_, i) => (
           <option key={i + 1} value={i + 1}>
             {i + 1}

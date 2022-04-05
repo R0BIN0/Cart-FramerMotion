@@ -43,7 +43,7 @@ const Navbar = () => {
                 innerWidth < 500
                   ? toggle
                     ? "translateY(0%)"
-                    : "translateY(-100%)"
+                    : "translateY(calc(-100% - 4rem))"
                   : "translateY(0%)",
             }}
             className="nav-right-container"

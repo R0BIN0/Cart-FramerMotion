@@ -1,6 +1,5 @@
 body {
   margin-top: var(--body-mt);
-  background-color: rgb(216, 213, 219);
 }
 
 /* ================================== NAV ================================== */
@@ -11,7 +10,6 @@ body {
   top: 0;
   left: 0;
   height: var(--body-mt);
-  background-color: var(--main-color);
   font-size: 1em;
 }
 
@@ -21,7 +19,6 @@ body {
   max-width: 1250px;
   margin: 0 auto;
   padding: 0 2rem;
-  background-color: var(--main-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,7 +81,7 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  color: white;
+  color: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,14 +107,18 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .nav-container {
+    background-color: var(--main-color);
+  }
+
   .nav-right-container {
     width: 100%;
     position: fixed;
     top: var(--body-mt);
     left: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--main-color);
     z-index: -1;
-    transition: transform 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    transition: transform 600ms cubic-bezier(1, 0, 0, 1) 0ms;
   }
 
   .nav-list {

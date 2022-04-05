@@ -180,8 +180,6 @@ a {
 
 @media screen and (max-width: 768px) {
   :root {
-    /* === body var === */
-
     --body-mt: 4rem;
   }
 }
