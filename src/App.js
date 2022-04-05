@@ -13,11 +13,13 @@ import AnimatedRoutes from "./Routing/AnimatedRoutes";
 // Hooks
 
 import { ScrollRestoration } from "./Hooks/ScrollRestoration";
+import RefreshLS from "./Hooks/RefreshLS";
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollRestoration />
+      <RefreshLS />
       <AnimatedRoutes />
     </BrowserRouter>
   );
