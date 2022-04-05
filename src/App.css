@@ -1,6 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  /* === body var === */
 
-::root {
+  --body-mt: 4.5rem;
+
+  /* === Color === */
+
+  --main-color: #fff;
+  --secondary-color: #f9f9f9;
+
+  --main-color-txt: #13122e;
+  --secondary-color-txt: #898898;
+  --third-color: #8a8a8a;
+
+  --danger-color: #ff0e0e;
+
+  /* === fonts === */
+
+  --serif-font: "Cinzel", serif;
+  --sans-serif-font: "Work Sans", sans-serif;
 }
 
 html,
@@ -161,6 +178,10 @@ a {
   cursor: pointer;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+@media screen and (max-width: 768px) {
+  :root {
+    /* === body var === */
+
+    --body-mt: 4rem;
+  }
 }
