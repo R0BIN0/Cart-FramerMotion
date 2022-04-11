@@ -7,11 +7,11 @@
 
   --main-color: #fff;
   --secondary-color: hsl(0, 0%, 96%);
+  --third-color: #8a8a8a;
 
   --main-color-txt: #13122e;
   --main-color-txt-hover: hsl(242, 44%, 20%);
   --secondary-color-txt: #898898;
-  --third-color: #8a8a8a;
 
   --danger-color: #ff0e0e;
 
@@ -19,6 +19,10 @@
 
   --serif-font: "Cinzel", serif;
   --sans-serif-font: "Work Sans", sans-serif;
+
+  /* === Images === */
+
+  --size-photo: 500px;
 }
 
 html,
@@ -179,8 +183,21 @@ a {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1024px) {
+  :root {
+    --size-photo: 400px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --body-mt: 4rem;
+    --size-photo: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :root {
+    --size-photo: 240px;
   }
 }

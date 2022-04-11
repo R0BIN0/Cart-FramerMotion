@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import "./Products.css";
 
 const Products = ({ animation, setPicture, id, name, price, images }) => {
-  console.log(images);
-
   return (
     <>
       <Link onMouseOver={() => setPicture(images)} to={`/product/${id}`}>

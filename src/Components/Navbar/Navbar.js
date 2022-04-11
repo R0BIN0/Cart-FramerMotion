@@ -11,6 +11,9 @@ import Bag from "../../Assets/Images/General/bag.png";
 const Navbar = () => {
   /* ============================= STATES =============================  */
 
+  // const [numberCart, setNumberCart] = useState(
+  //   JSON.parse(localStorage.getItem("cart").length)
+  // );
   const [toggle, setToggle] = useState(false);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
@@ -40,7 +43,7 @@ const Navbar = () => {
           <div
             style={{
               transform:
-                innerWidth < 500
+                innerWidth <= 500
                   ? toggle
                     ? "translateY(0%)"
                     : "translateY(calc(-100% - 4rem))"
@@ -69,7 +72,7 @@ const Navbar = () => {
                   <p>Panier</p>
                   <div className="nav-items-bag">
                     <img src={Bag} alt="sac de course" />
-                    <div className="circle-bag">2</div>
+                    <div className="circle-bag">{2}</div>
                   </div>
                 </Link>
               </li>

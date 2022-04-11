@@ -70,6 +70,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .home-product {
+    max-width: initial;
+  }
+
   .home-product-img-container img {
     width: 200px;
   }

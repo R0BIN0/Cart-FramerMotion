@@ -45,15 +45,15 @@ export default function Home() {
   };
 
   const title = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 20 },
 
     ...(openProducts && {
       show: {
         opacity: 1,
         y: 0,
         transition: {
-          duration: 1,
-          delay: 1.4,
+          duration: 4,
+          delay: 0.75,
           ease: ease,
         },
       },
@@ -78,7 +78,9 @@ export default function Home() {
             />
           </div>
 
-          <div
+          <motion.div
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
             className={
               openProducts ? "home-right" : "home-right home-right-hidden"
             }
@@ -100,7 +102,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

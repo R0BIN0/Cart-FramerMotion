@@ -47,7 +47,7 @@ const productData = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta accusamus magni fuga, ratione cumque adipisci veritatis veniam modi numquam consectetur dolorum exercitationem unde.",
     price: "18 101",
     size: "Unique",
-    stock: 6,
+    stock: 0,
     images: [product2_1, product2_2, product2_3, product2_4],
   },
   {
