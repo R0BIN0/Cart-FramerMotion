@@ -6,9 +6,10 @@
   /* === Color === */
 
   --main-color: #fff;
-  --secondary-color: #f9f9f9;
+  --secondary-color: hsl(0, 0%, 96%);
 
   --main-color-txt: #13122e;
+  --main-color-txt-hover: hsl(242, 44%, 20%);
   --secondary-color-txt: #898898;
   --third-color: #8a8a8a;
 

@@ -1,0 +1,10 @@
+.home-letters-container {
+  overflow: hidden;
+  display: flex;
+}
+
+.home-letters-container p {
+  font-family: var(--serif-font);
+  color: var(--main-color-txt);
+  font-size: clamp(6rem, 20.75vw, 15rem);
+}

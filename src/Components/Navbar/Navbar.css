@@ -11,6 +11,9 @@ body {
   left: 0;
   height: var(--body-mt);
   font-size: 1em;
+  z-index: 50;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--main-color-txt);
 }
 
 .nav-container {

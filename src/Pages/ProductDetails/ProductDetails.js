@@ -13,6 +13,7 @@ export default function ProductDetails() {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [currentProduct, setCurrentProduct] = useState({});
   const [qty, setQty] = useState(1);
+  console.log(currentProduct);
 
   // ============= RECUPERER LE BON PRODUIT =============
 
@@ -45,19 +46,17 @@ export default function ProductDetails() {
     setCart(newArr);
   };
 
-  return (
-    <>
-      <h1>{currentProduct.name}</h1>
-      <button onClick={() => addToCart({ objId: currentProduct.id, qty: qty })}>
-        AJOUTER
-      </button>
-      <select value={qty} onChange={(e) => setQty(Number(e.target.value))}>
-        {Array.from({ length: currentProduct.stock }).map((_, i) => (
-          <option key={i + 1} value={i + 1}>
-            {i + 1}
-          </option>
-        ))}
-      </select>
-    </>
-  );
+  return <></>;
 }
+
+// <h1>{currentProduct.name}</h1>
+// <button onClick={() => addToCart({ objId: currentProduct.id, qty: qty })}>
+//   AJOUTER
+// </button>
+// <select value={qty} onChange={(e) => setQty(Number(e.target.value))}>
+//   {Array.from({ length: currentProduct.stock }).map((_, i) => (
+//     <option key={i + 1} value={i + 1}>
+//       {i + 1}
+//     </option>
+//   ))}
+// </select>

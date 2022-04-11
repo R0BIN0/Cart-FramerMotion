@@ -1,0 +1,41 @@
+import React from "react";
+import productData from "../../Data/ProductData";
+import Products from "../Products/Products";
+import { v4 as uuidv4 } from "uuid";
+
+const ProductList = ({ openProducts, setPicture }) => {
+  const ease = [0.08, 0.82, 0.17, 1];
+
+  const card = {
+    hidden: { transform: "translateY(300px)", opacity: 0.2 },
+
+    ...(openProducts && {
+      show: {
+        transform: "translateY(0px)",
+        opacity: 1,
+        transition: {
+          duration: 2,
+          ease: ease,
+        },
+      },
+    }),
+  };
+
+  return (
+    <>
+      {productData.map((item) => (
+        <Products
+          key={uuidv4()}
+          animation={card}
+          setPicture={setPicture}
+          id={item.id}
+          name={item.name}
+          price={item.price}
+          images={item.images[0]}
+        />
+      ))}
+    </>
+  );
+};
+
+export const MemoisedProductList = React.memo(ProductList);
