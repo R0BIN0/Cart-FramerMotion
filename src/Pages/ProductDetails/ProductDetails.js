@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 // Styles
 import "./ProductDetails.css";
@@ -13,6 +14,8 @@ import productData from "../../Data/ProductData";
 import SlideShow from "../../Components/SlideShow/SlideShow";
 
 export default function ProductDetails() {
+  const navigate = useNavigate();
+
   // ============= STATES =============
 
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
@@ -86,6 +89,7 @@ export default function ProductDetails() {
       newArr.splice(alreadyHere, 1, newObj);
     }
     setCart(newArr);
+    navigate("/cart");
   };
 
   return (
@@ -97,6 +101,7 @@ export default function ProductDetails() {
               // Animate with "scale" for the performance
               initial={{ transform: "scale(1)" }}
               animate={{ transform: "scale(0.8)" }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
               className="PD-img-container"
             >
@@ -138,6 +143,7 @@ export default function ProductDetails() {
           <motion.div
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
             className="PD-right"
           >

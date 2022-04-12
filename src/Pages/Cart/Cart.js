@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import ProductsCart from "../../Components/ProductsCart/ProductsCart";
+import { v4 as uuidv4 } from "uuid";
+import "./Cart.css";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ReactComponent as Arrow } from "../../Assets/Images/General/arrow.svg";
 
 export default function Cart() {
   // ============= STATES =============
@@ -7,47 +13,96 @@ export default function Cart() {
     JSON.parse(localStorage.getItem("cart")) || []
   );
 
-  // ============= MIS A JOUR DU LS =============
+  const [price, setPrice] = useState("");
+
+  // ============= MIS A JOUR DU LS + CALCUL PRIX =============
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+    setPrice(() =>
+      cart.reduce(
+        (acc, item) => acc + Number(item.price.replaceAll(" ", "")) * item.qty,
+        0
+      )
+    );
   }, [cart]);
 
-  // ============= FONCTION "REMOVE FROM CART" =============
-
-  const removeFromCart = (objId) => {
-    setCart((prev) => prev.filter((item) => item.id !== objId));
-  };
-
-  // ============= FONCTION "UPDATE QTY" =============
-
-  const updateQty = ({ objId, qty }) => {
-    setCart((prev) =>
-      prev.map((item) => (item.id === objId ? { ...item, qty: qty } : item))
-    );
-  };
+  // ============= CALCULS DE PRIX =============
 
   return (
     <>
-      {cart.map((item, i) => (
-        <div key={i}>
-          <h1>{item.name}</h1>
-          <p>{item.qty}</p>
-          <button onClick={() => removeFromCart(item.id)}>X</button>
-          <select
-            value={item.qty}
-            onChange={(e) =>
-              updateQty({ objId: item.id, qty: Number(e.target.value) })
-            }
-          >
-            {Array.from({ length: item.stock }).map((_, i) => (
-              <option key={i + 1} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-        </div>
-      ))}
+      {cart.length !== 0 ? (
+        <motion.section
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
+          className="cart"
+        >
+          <div className="cart-container">
+            <div className="cart-left">
+              <div className="cart-left-grid">
+                {cart.map((item) => (
+                  <ProductsCart
+                    key={uuidv4()}
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    img={item.images[0]}
+                    qty={item.qty}
+                    setCart={setCart}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="cart-right">
+              <div className="cart-right-input-container">
+                <input type="text" placeholder="Code Promo" />
+                <button>
+                  <Arrow className="cart-right-btn-img" />
+                </button>
+              </div>
+              <div className="cart-right-pricing-container">
+                <div className="cart-right-pricing-box">
+                  <p>Prix Total :</p>
+
+                  <p>{price && price.toFixed(2)}€</p>
+                </div>
+                <div className="cart-right-pricing-box">
+                  <p>
+                    Tax <span>(2%)</span> :
+                  </p>
+                  <p>{price && (price * 0.02).toFixed(2)}€</p>
+                </div>
+                <div className="cart-right-pricing-box">
+                  <p>Livraison :</p>
+                  <p>Gratuite</p>
+                </div>
+                <div className="cart-right-pricing-box">
+                  <p>Total :</p>
+                  <p>{price && (price + price * 0.02).toFixed(2)}€</p>
+                </div>
+                <div className="cart-right-buttons-container">
+                  <button className="cart-right-btn">
+                    Procéder au paiement
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+      ) : (
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
+          className="no-cart"
+        >
+          <p>Votre panier est vide</p>
+          <Link to="/">Revenir à l&apos;accueil</Link>
+        </motion.div>
+      )}
     </>
   );
 }
