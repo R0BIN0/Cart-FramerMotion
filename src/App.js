@@ -1,23 +1,19 @@
 // General
-
 import { BrowserRouter } from "react-router-dom";
 
 // Context
-
 import CartContextProvider from "./Context/CartContext";
 
 // Styles
-
 import "./App.css";
 
 // Routing
-
 import AnimatedRoutes from "./Routing/AnimatedRoutes";
 
 // Hooks
 
 import { ScrollRestoration } from "./Hooks/ScrollRestoration";
-import RefreshLS from "./Hooks/RefreshLS";
+import { RefreshLS } from "./Hooks/RefreshLS";
 
 function App() {
   return (
@@ -34,3 +30,8 @@ function App() {
 }
 
 export default App;
+
+console.log(
+  "%cDéveloppé par Robino 🐣",
+  "color: black; font-weight: bold; background-color: white; padding: 2rem; font-family: Work Sans, sans-serif;"
+);

@@ -1,5 +1,3 @@
-// import { v4 as uuidv4 } from "uuid";
-
 // ========= Img products =========
 
 import product1_1 from "../Assets/Images/Products/product1/product1_1.png";

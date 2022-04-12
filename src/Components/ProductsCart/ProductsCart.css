@@ -5,6 +5,7 @@
   background-color: var(--secondary-color);
   padding: 1rem 1rem 2rem 1rem;
   font-family: var(--sans-serif-font);
+  text-align: center;
 }
 
 /* =============== PD-top ================ */
@@ -60,7 +61,6 @@
 .PC-remove-btn {
   width: 22.5px;
   height: 22.5px;
-  /* padding: 0.6rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@
 }
 
 .PC-price {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .PC-price span {

@@ -1,8 +1,11 @@
+// General
 import { motion, AnimatePresence } from "framer-motion";
+
+// Styles
 import "./Letters.css";
 
 const Letters = ({ openProducts }) => {
-  // console.log(openProducts);
+  /* ============================= ANIMATIONS =============================  */
 
   const ease = [0.08, 0.82, 0.17, 1];
 

@@ -1,3 +1,5 @@
+// Avoid scroll problem with react-router-dom
+
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -10,5 +12,3 @@ export const ScrollRestoration = () => {
 
   return null;
 };
-
-// Avoid scroll problem with react-router-dom

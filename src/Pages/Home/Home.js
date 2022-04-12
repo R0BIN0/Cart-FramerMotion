@@ -1,13 +1,11 @@
 // General
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Style
 import "./Home.css";
 
 // Images
-
 import home_background from "../../Assets/Images/General/home_background.png";
 
 // Components
@@ -66,6 +64,8 @@ export default function Home() {
 
       <div className="home">
         <div className="home-container">
+          {/* ========================= HOME-LEFT ========================= */}
+
           <div
             className={openProducts ? "home-left home-left-half" : "home-left"}
           >
@@ -77,6 +77,8 @@ export default function Home() {
               alt=""
             />
           </div>
+
+          {/* ========================= HOME-RIGHT ========================= */}
 
           <motion.div
             exit={{ y: -100, opacity: 0 }}
@@ -92,6 +94,8 @@ export default function Home() {
               animate="show"
               className="home-products"
             >
+              {/* ============== Home product container ============== */}
+
               <div className="home-products-container">
                 <motion.h2 variants={title}>Rolex</motion.h2>
                 <div className="home-products-grid">

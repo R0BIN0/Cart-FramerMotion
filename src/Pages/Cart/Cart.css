@@ -194,6 +194,9 @@
 /* ================================== MEDIA QUERIES ================================== */
 
 @media screen and (max-width: 1024px) {
+  .cart-right {
+    font-size: 0.95em;
+  }
   .cart-container {
     padding: 4rem 2rem 0rem 2rem;
     grid-template-columns: none;
@@ -213,5 +216,14 @@
 @media screen and (max-width: 500px) {
   .cart-right {
     font-size: 0.9em;
+  }
+
+  .cart-right-input-container button {
+    min-width: 25px;
+    min-height: 25px;
+    margin-left: 0.5rem;
+  }
+  .cart-right-btn-img {
+    width: 12.5px;
   }
 }

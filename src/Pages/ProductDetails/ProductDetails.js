@@ -1,20 +1,18 @@
 // General
-
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Styles
 import "./ProductDetails.css";
 
-// Data
-
-import productData from "../../Data/ProductData";
+// Components
 import SlideShow from "../../Components/SlideShow/SlideShow";
 
-// Context
+// Data
+import productData from "../../Data/ProductData";
 
+// Context
 import { CartContext } from "../../Context/CartContext";
 
 export default function ProductDetails() {
@@ -29,7 +27,7 @@ export default function ProductDetails() {
   const [sliderIndex, setSliderIndex] = useState(0);
   const [firstAnimation, setFirstAnimation] = useState(false);
 
-  // ============= RECUPERER LE BON PRODUIT =============
+  // ============= Récupérer le bon produit =============
 
   const id = useParams().id;
 
@@ -38,7 +36,7 @@ export default function ProductDetails() {
     setCurrentProduct(product[0]);
   }, []);
 
-  // ============= MIS A JOUR DE LA QUANTITE A L'ARRIVE SUR LA PAGE =============
+  // ============= mis à jour de la quantité à l'arrivée sur la page =============
 
   useEffect(() => {
     [...cart].map((item) =>
@@ -46,24 +44,7 @@ export default function ProductDetails() {
     );
   }, [currentProduct]);
 
-  // ============= FONCTION "ADD TO CART" =============
-
-  const addToCart = (objId) => {
-    let newArr = [...cart];
-    const newObj = { ...currentProduct, qty: qty };
-
-    const alreadyHere = cart.findIndex((item) => item.id === objId);
-
-    if (alreadyHere === -1) {
-      newArr = [...cart, newObj];
-    } else {
-      newArr.splice(alreadyHere, 1, newObj);
-    }
-    setCart(newArr);
-    navigate("/cart");
-  };
-
-  // ============= FONCTION "MODIFY QTY" =============
+  // ============= Modifier la quantité =============
 
   const addQty = () => {
     if (qty === currentProduct.stock) {
@@ -81,7 +62,24 @@ export default function ProductDetails() {
     }
   };
 
-  // ============= FONCTION "SwitchSlide" =============
+  // ============= ajouter au panier =============
+
+  const addToCart = (objId) => {
+    let newArr = [...cart];
+    const newObj = { ...currentProduct, qty: qty };
+
+    const alreadyHere = cart.findIndex((item) => item.id === objId);
+
+    if (alreadyHere === -1) {
+      newArr = [...cart, newObj];
+    } else {
+      newArr.splice(alreadyHere, 1, newObj);
+    }
+    setCart(newArr);
+    navigate("/cart");
+  };
+
+  // ============= fonctionnement slider =============
 
   const switchSlider = (index) => {
     setSliderIndex(index);
@@ -94,12 +92,17 @@ export default function ProductDetails() {
     <>
       <div className="PD">
         <div className="PD-container">
-          <div className="PD-left">
+          {/* ========================= PD-LEFT ========================= */}
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
+            className="PD-left"
+          >
+            {/* ============== PD-img-container ============== */}
             <motion.div
               // Animate with "scale" for the performance
               initial={{ transform: "scale(1)" }}
               animate={{ transform: "scale(0.8)" }}
-              exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: [1, 0, 0, 1] }}
               className="PD-img-container"
             >
@@ -112,6 +115,7 @@ export default function ProductDetails() {
                 />
               )}
             </motion.div>
+            {/* ============== PD-slider ============== */}
             <div className="PD-slider">
               {currentProduct.images && (
                 <div className="PD-slider-nav">
@@ -137,7 +141,8 @@ export default function ProductDetails() {
                 </div>
               )}
             </div>
-          </div>
+          </motion.div>
+          {/* ========================= PD-RIGHT ========================= */}
           <motion.div
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -151,6 +156,7 @@ export default function ProductDetails() {
             <div className="PD-features-container">
               <div className="PD-features-box">
                 <p className="PD-feature-title">Quantité :</p>
+                {/* ============== PD-buttons-qty ============== */}
                 {currentProduct.stock !== 0 && (
                   <div className="PD-qty-buttons-container">
                     <button onClick={() => removeQty()}>-</button>
@@ -158,6 +164,7 @@ export default function ProductDetails() {
                     <button onClick={() => addQty()}>+</button>
                   </div>
                 )}
+                {/* ============================================ */}
 
                 <div
                   className={
@@ -178,6 +185,7 @@ export default function ProductDetails() {
                 <p>6 avr. - 12 avr.</p>
               </div>
             </div>
+            {/* ============== PD-buttons-add ============== */}
             <div className="PD-buttons-container">
               {currentProduct.stock !== 0 ? (
                 <button

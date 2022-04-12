@@ -1,8 +1,15 @@
+// General
 import { motion, AnimatePresence } from "framer-motion";
+
+// Styles
 import "./Overlay.css";
+
+// Components
 import Letters from "../Letters/Letters";
 
 const Overlay = ({ openProducts, setOpenProducts }) => {
+  /* ============================= ANIMATIONS =============================  */
+
   const ease = [0.08, 0.82, 0.17, 1];
 
   return (

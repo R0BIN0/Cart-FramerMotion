@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 // Style
 import "./Navbar.css";
 
-// Context
-
-import { CartContext } from "../../Context/CartContext";
-
 // Images
 import Bag from "../../Assets/Images/General/bag.png";
+
+// Context
+import { CartContext } from "../../Context/CartContext";
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);
@@ -20,7 +19,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
-  /* ============================= GET INNERWIDTH =============================  */
+  /* ============================= Obtenir la largeur de l'écran =============================  */
 
   useEffect(() => {
     const changeWidth = () => {
@@ -43,6 +42,7 @@ const Navbar = () => {
         </div>
         {/* ========================= NAV RIGHT ========================= */}
         <div className="nav-right">
+          {/* ============== Nav-right-container ============== */}
           <div
             style={{
               transform:

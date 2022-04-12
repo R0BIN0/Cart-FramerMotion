@@ -1,8 +1,11 @@
+// Styles
 import "./ProductsCart.css";
+
+// Images
 import { ReactComponent as Cross } from "../../Assets/Images/General/cross.svg";
 
 const ProductsCart = ({ id, name, price, img, qty, setCart }) => {
-  // ============= FONCTION "UPDATE QTY" =============
+  // ============= mis à jour de la quantité =============
 
   const updateQty = ({ action }) => {
     setCart((prev) =>
@@ -30,7 +33,7 @@ const ProductsCart = ({ id, name, price, img, qty, setCart }) => {
     }
   };
 
-  // ============= FONCTION "REMOVE FROM CART" =============
+  // ============= retirer un produit du cart =============
 
   const removeFromCart = () => {
     setCart((prev) => prev.filter((item) => item.id !== id));
@@ -39,7 +42,9 @@ const ProductsCart = ({ id, name, price, img, qty, setCart }) => {
   return (
     <>
       <div className="PC">
+        {/* ========================= HOME-TOP ========================= */}
         <div className="PC-top">
+          {/* ============== PC-buttons-qty ============== */}
           <div className="PC-qty-buttons-container">
             <button onClick={() => updateQty({ action: "remove" })}>-</button>
             <span>{qty}</span>
@@ -49,6 +54,7 @@ const ProductsCart = ({ id, name, price, img, qty, setCart }) => {
             <Cross className="PC-remove-btn-img" />
           </button>
         </div>
+        {/* ========================= HOME-BOTTOM ========================= */}
         <div className="PC-bottom">
           <img src={img} alt={name} />
           <p>{name} </p>

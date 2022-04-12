@@ -1,9 +1,16 @@
-import React from "react";
-import productData from "../../Data/ProductData";
-import Products from "../Products/Products";
+// General
+import { memo } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+// Components
+import ProductsHome from "../ProductsHome/ProductsHome";
+
+// Data
+import productData from "../../Data/ProductData";
+
 const ProductList = ({ openProducts, setPicture }) => {
+  /* ============================= ANIMATIONS =============================  */
+
   const ease = [0.08, 0.82, 0.17, 1];
 
   const card = {
@@ -24,7 +31,7 @@ const ProductList = ({ openProducts, setPicture }) => {
   return (
     <>
       {productData.map((item) => (
-        <Products
+        <ProductsHome
           key={uuidv4()}
           animation={card}
           setPicture={setPicture}
@@ -38,4 +45,4 @@ const ProductList = ({ openProducts, setPicture }) => {
   );
 };
 
-export const MemoisedProductList = React.memo(ProductList);
+export const MemoisedProductList = memo(ProductList);

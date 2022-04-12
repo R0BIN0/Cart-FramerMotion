@@ -1,13 +1,19 @@
+// General
 import { useState, useEffect, useContext } from "react";
-import ProductsCart from "../../Components/ProductsCart/ProductsCart";
 import { v4 as uuidv4 } from "uuid";
-import "./Cart.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+// Styles
+import "./Cart.css";
+
+// Images
 import { ReactComponent as Arrow } from "../../Assets/Images/General/arrow.svg";
 
-// Context
+// Components
+import ProductsCart from "../../Components/ProductsCart/ProductsCart";
 
+// Context
 import { CartContext } from "../../Context/CartContext";
 
 export default function Cart() {
@@ -17,7 +23,7 @@ export default function Cart() {
 
   const [price, setPrice] = useState("");
 
-  // ============= CALCUL PRIX =============
+  // ============= calcul du prix final =============
 
   useEffect(() => {
     setPrice(() =>
@@ -27,8 +33,6 @@ export default function Cart() {
       )
     );
   }, [cart]);
-
-  // ============= CALCULS DE PRIX =============
 
   return (
     <>
@@ -41,7 +45,9 @@ export default function Cart() {
           className="cart"
         >
           <div className="cart-container">
+            {/* ========================= CART-LEFT ========================= */}
             <div className="cart-left">
+              {/* ============== Cart-product-grid ============== */}
               <div className="cart-left-grid">
                 {cart.map((item) => (
                   <ProductsCart
@@ -56,13 +62,16 @@ export default function Cart() {
                 ))}
               </div>
             </div>
+            {/* ========================= CART-LEFT ========================= */}
             <div className="cart-right">
+              {/* ============== Cart-promo-input ============== */}
               <div className="cart-right-input-container">
                 <input type="text" placeholder="Code Promo" />
                 <button>
                   <Arrow className="cart-right-btn-img" />
                 </button>
               </div>
+              {/* ============== Cart-pricing-container ============== */}
               <div className="cart-right-pricing-container">
                 <div className="cart-right-pricing-box">
                   <p>Prix Total :</p>
@@ -83,6 +92,7 @@ export default function Cart() {
                   <p>Total :</p>
                   <p>{price && (price + price * 0.02).toFixed(2)}€</p>
                 </div>
+                {/* ============== Cart-btn-container ============== */}
                 <div className="cart-right-buttons-container">
                   <button className="cart-right-btn">
                     Procéder au paiement

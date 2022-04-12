@@ -1,11 +1,11 @@
+// General
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 // Styles
+import "./ProductsHome.css";
 
-import "./Products.css";
-
-const Products = ({ animation, setPicture, id, name, price, images }) => {
+const ProductsHome = ({ animation, setPicture, id, name, price, images }) => {
   return (
     <>
       <Link onMouseOver={() => setPicture(images)} to={`/product/${id}`}>
@@ -21,4 +21,4 @@ const Products = ({ animation, setPicture, id, name, price, images }) => {
   );
 };
 
-export default Products;
+export default ProductsHome;

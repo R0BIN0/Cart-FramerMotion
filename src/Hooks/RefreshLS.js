@@ -1,6 +1,8 @@
+// Init everytime our LS (localstorage) if deleted
+
 import { useEffect } from "react";
 
-const RefreshLS = () => {
+export const RefreshLS = () => {
   useEffect(() => {
     if (!localStorage.getItem("cart")) {
       return localStorage.setItem("cart", JSON.stringify([]));
@@ -9,5 +11,3 @@ const RefreshLS = () => {
 
   return null;
 };
-
-export default RefreshLS;

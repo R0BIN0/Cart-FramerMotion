@@ -1,7 +1,9 @@
-import React from "react";
+// General
 import { motion, AnimatePresence } from "framer-motion";
 
 const SlideShow = ({ firstAnimation, img, alt }) => {
+  /* ============================= ANIMATIONS =============================  */
+
   const ease = [0.08, 0.82, 0.17, 1];
 
   const slideAnimation = {
