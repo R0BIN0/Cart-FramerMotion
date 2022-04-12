@@ -13,7 +13,6 @@ body {
   font-size: 1em;
   z-index: 50;
   background-color: var(--secondary-color);
-  border-bottom: 1px solid var(--main-color-txt);
 }
 
 .nav-container {
@@ -25,6 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--main-color-txt);
 }
 
 /* =============== nav-left ================ */
@@ -117,11 +117,12 @@ body {
   .nav-right-container {
     width: 100%;
     position: fixed;
-    top: var(--body-mt);
+    top: calc(var(--body-mt) - 100vh);
     left: 0;
     background-color: var(--main-color);
     z-index: -1;
     transition: transform 600ms cubic-bezier(1, 0, 0, 1) 0ms;
+    /* background-color: rebeccapurple; */
   }
 
   .nav-list {

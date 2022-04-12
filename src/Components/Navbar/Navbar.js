@@ -47,9 +47,7 @@ const Navbar = () => {
             style={{
               transform:
                 innerWidth <= 500
-                  ? toggle
-                    ? "translateY(0%)"
-                    : "translateY(calc(-100% - 4rem))"
+                  ? toggle && "translateY(100vh)"
                   : "translateY(0%)",
             }}
             className="nav-right-container"

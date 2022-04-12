@@ -198,6 +198,7 @@ a {
 
 @media screen and (max-width: 500px) {
   :root {
+    --body-mt: 3.25rem;
     --size-photo: 240px;
   }
 }
