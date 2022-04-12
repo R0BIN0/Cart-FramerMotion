@@ -13,6 +13,7 @@ body {
   font-size: 1em;
   z-index: 50;
   background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--main-color-txt);
 }
 
 .nav-container {
@@ -24,7 +25,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--main-color-txt);
 }
 
 /* =============== nav-left ================ */
@@ -102,10 +102,12 @@ body {
 @media screen and (max-width: 768px) {
   .nav {
     font-size: 0.9em;
+    border: none;
   }
 
   .nav-container {
     padding: 0 1rem;
+    border-bottom: 1px solid var(--main-color-txt);
   }
 }
 
