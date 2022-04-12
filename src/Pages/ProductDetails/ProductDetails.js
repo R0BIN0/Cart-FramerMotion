@@ -1,6 +1,6 @@
 // General
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -13,26 +13,21 @@ import "./ProductDetails.css";
 import productData from "../../Data/ProductData";
 import SlideShow from "../../Components/SlideShow/SlideShow";
 
+// Context
+
+import { CartContext } from "../../Context/CartContext";
+
 export default function ProductDetails() {
+  const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   // ============= STATES =============
 
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [currentProduct, setCurrentProduct] = useState({});
   const [qty, setQty] = useState(1);
 
   const [sliderIndex, setSliderIndex] = useState(0);
   const [firstAnimation, setFirstAnimation] = useState(false);
-
-  // ============= FONCTION "SwitchSlide" =============
-
-  const switchSlider = (index) => {
-    setSliderIndex(index);
-    if (!firstAnimation) {
-      setFirstAnimation(true);
-    }
-  };
 
   // ============= RECUPERER LE BON PRODUIT =============
 
@@ -43,12 +38,6 @@ export default function ProductDetails() {
     setCurrentProduct(product[0]);
   }, []);
 
-  // ============= MIS A JOUR DU LS =============
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   // ============= MIS A JOUR DE LA QUANTITE A L'ARRIVE SUR LA PAGE =============
 
   useEffect(() => {
@@ -56,6 +45,23 @@ export default function ProductDetails() {
       item.id === currentProduct.id ? setQty(item.qty) : item
     );
   }, [currentProduct]);
+
+  // ============= FONCTION "ADD TO CART" =============
+
+  const addToCart = (objId) => {
+    let newArr = [...cart];
+    const newObj = { ...currentProduct, qty: qty };
+
+    const alreadyHere = cart.findIndex((item) => item.id === objId);
+
+    if (alreadyHere === -1) {
+      newArr = [...cart, newObj];
+    } else {
+      newArr.splice(alreadyHere, 1, newObj);
+    }
+    setCart(newArr);
+    navigate("/cart");
+  };
 
   // ============= FONCTION "MODIFY QTY" =============
 
@@ -75,21 +81,13 @@ export default function ProductDetails() {
     }
   };
 
-  // ============= FONCTION "ADD TO CART" =============
+  // ============= FONCTION "SwitchSlide" =============
 
-  const addToCart = (objId) => {
-    let newArr = [...cart];
-    const newObj = { ...currentProduct, qty: qty };
-
-    const alreadyHere = cart.findIndex((item) => item.id === objId);
-
-    if (alreadyHere === -1) {
-      newArr = [...cart, newObj];
-    } else {
-      newArr.splice(alreadyHere, 1, newObj);
+  const switchSlider = (index) => {
+    setSliderIndex(index);
+    if (!firstAnimation) {
+      setFirstAnimation(true);
     }
-    setCart(newArr);
-    navigate("/cart");
   };
 
   return (

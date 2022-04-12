@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ProductsCart from "../../Components/ProductsCart/ProductsCart";
 import { v4 as uuidv4 } from "uuid";
 import "./Cart.css";
@@ -6,19 +6,20 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ReactComponent as Arrow } from "../../Assets/Images/General/arrow.svg";
 
-export default function Cart() {
-  // ============= STATES =============
+// Context
 
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+import { CartContext } from "../../Context/CartContext";
+
+export default function Cart() {
+  const { cart, setCart } = useContext(CartContext);
+
+  // ============= STATES =============
 
   const [price, setPrice] = useState("");
 
-  // ============= MIS A JOUR DU LS + CALCUL PRIX =============
+  // ============= CALCUL PRIX =============
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
     setPrice(() =>
       cart.reduce(
         (acc, item) => acc + Number(item.price.replaceAll(" ", "")) * item.qty,

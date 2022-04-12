@@ -2,6 +2,10 @@
 
 import { BrowserRouter } from "react-router-dom";
 
+// Context
+
+import CartContextProvider from "./Context/CartContext";
+
 // Styles
 
 import "./App.css";
@@ -17,11 +21,15 @@ import RefreshLS from "./Hooks/RefreshLS";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollRestoration />
-      <RefreshLS />
-      <AnimatedRoutes />
-    </BrowserRouter>
+    <>
+      <CartContextProvider>
+        <BrowserRouter>
+          <ScrollRestoration />
+          <RefreshLS />
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </CartContextProvider>
+    </>
   );
 }
 

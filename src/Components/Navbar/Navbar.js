@@ -1,19 +1,22 @@
 // General
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 // Style
 import "./Navbar.css";
 
+// Context
+
+import { CartContext } from "../../Context/CartContext";
+
 // Images
 import Bag from "../../Assets/Images/General/bag.png";
 
 const Navbar = () => {
+  const { cart } = useContext(CartContext);
+
   /* ============================= STATES =============================  */
 
-  // const [numberCart, setNumberCart] = useState(
-  //   JSON.parse(localStorage.getItem("cart").length)
-  // );
   const [toggle, setToggle] = useState(false);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
@@ -72,7 +75,7 @@ const Navbar = () => {
                   <p>Panier</p>
                   <div className="nav-items-bag">
                     <img src={Bag} alt="sac de course" />
-                    <div className="circle-bag">{2}</div>
+                    <div className="circle-bag">{cart.length}</div>
                   </div>
                 </Link>
               </li>
