@@ -73,7 +73,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, ease: ease }}
               src={picture}
-              alt=""
+              alt="montre de luxe"
             />
           </div>
 
