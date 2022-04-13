@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import "./Home.css";
 
 // Images
+import img_product from "../../Assets/Images/Products/product1/product1_1.png";
 import home_background from "../../Assets/Images/General/home_background.png";
 
 // Components
@@ -16,9 +17,7 @@ export default function Home() {
   /* ============================= STATES =============================  */
 
   const [openProducts, setOpenProducts] = useState(false);
-  const [picture, setPicture] = useState(
-    "/static/media/product1_1.716522807a3ecc1b58f7.png"
-  );
+  const [picture, setPicture] = useState(img_product);
 
   /* ============================= ANIMATIONS =============================  */
 
