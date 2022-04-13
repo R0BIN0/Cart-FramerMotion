@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Cart-FramerMotion/static/css/main.2f711593.css",
-    "main.js": "/Cart-FramerMotion/static/js/main.8e211a0e.js",
+    "main.js": "/Cart-FramerMotion/static/js/main.253d92f4.js",
     "static/media/home_background.png": "/Cart-FramerMotion/static/media/home_background.1298d136178054feaf76.png",
     "static/media/product4_2.png": "/Cart-FramerMotion/static/media/product4_2.9bcd11efcf2b7d802eb5.png",
     "static/media/product5_2.png": "/Cart-FramerMotion/static/media/product5_2.d19771c87667765a8e94.png",
@@ -27,10 +27,10 @@
     "static/media/arrow.svg": "/Cart-FramerMotion/static/media/arrow.781e63e62777b1b53c8f15d3cb98b0f6.svg",
     "static/media/cross.svg": "/Cart-FramerMotion/static/media/cross.4e3a9c1ab19050289993a9680bfd7f44.svg",
     "main.2f711593.css.map": "/Cart-FramerMotion/static/css/main.2f711593.css.map",
-    "main.8e211a0e.js.map": "/Cart-FramerMotion/static/js/main.8e211a0e.js.map"
+    "main.253d92f4.js.map": "/Cart-FramerMotion/static/js/main.253d92f4.js.map"
   },
   "entrypoints": [
     "static/css/main.2f711593.css",
-    "static/js/main.8e211a0e.js"
+    "static/js/main.253d92f4.js"
   ]
 }
