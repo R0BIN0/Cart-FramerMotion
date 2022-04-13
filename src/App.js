@@ -1,5 +1,5 @@
 // General
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as BrowserRouter } from "react-router-dom";
 
 // Context
 import CartContextProvider from "./Context/CartContext";
